@@ -12,6 +12,7 @@ import {
 
 import colors from '@/constants/colors';
 import { Ionicons } from '@expo/vector-icons';
+import Search from './search';
 
 const Header = () => {
   return (
@@ -48,6 +49,7 @@ const Header = () => {
             <Ionicons name="person-outline" size={20} color={colors.primary} />
           </TouchableOpacity>
         </View>
+        <Search />
       </SafeAreaView>
     </>
   );

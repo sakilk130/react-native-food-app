@@ -1,16 +1,19 @@
 import { Stack } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import Header from '@/components/header';
 
 export const unstable_settings = {
   initialRouteName: 'index',
 };
 
 export default function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
     <Stack>
-      <Stack.Screen name="index" options={{}} />
+      <Stack.Screen
+        name="index"
+        options={{
+          header: () => <Header />,
+        }}
+      />
     </Stack>
   );
 }

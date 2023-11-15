@@ -9,12 +9,20 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
-import colors from '@/constants/colors';
 import { Ionicons } from '@expo/vector-icons';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
+
+import BottomSheet from '@/components/bottom-sheet/bottom-sheet';
+import colors from '@/constants/colors';
 import Search from './search';
 
 const Header = () => {
+  const bottomSheetModalRef = React.useRef<BottomSheetModal>(null);
+
+  const openModal = () => {
+    bottomSheetModalRef.current?.present();
+  };
+
   return (
     <>
       <StatusBar
@@ -22,21 +30,16 @@ const Header = () => {
         barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
       />
       <SafeAreaView style={styles.safeArea}>
+        <BottomSheet ref={bottomSheetModalRef} />
         <View style={styles.container}>
-          <TouchableOpacity
-            onPress={() => {
-              console.log('first');
-            }}
-          >
+          <TouchableOpacity onPress={openModal}>
             <Image
               source={require('@/assets/images/bike.png')}
               style={styles.image}
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {
-              console.log('first');
-            }}
+            onPress={openModal}
             style={styles.locationContainer}
           >
             <Text style={styles.location}>Delivery · Now</Text>

@@ -8,6 +8,7 @@ import {
 } from '@gorhom/bottom-sheet';
 
 import colors from '@/constants/colors';
+import { Link } from 'expo-router';
 
 const BottomSheet = React.forwardRef<BottomSheetModal, any>((props, ref) => {
   const snapPoints = React.useMemo(() => ['50%'], []);
@@ -42,11 +43,21 @@ const BottomSheet = React.forwardRef<BottomSheetModal, any>((props, ref) => {
         </View>
         <View>
           <Text style={styles.subheader}>Your Location</Text>
-          <TouchableOpacity style={styles.location}>
-            <Ionicons name="location-outline" size={20} color={colors.medium} />
-            <Text style={{ flex: 1 }}>Current location</Text>
-            <Ionicons name="chevron-forward" size={20} color={colors.primary} />
-          </TouchableOpacity>
+          <Link href={'/(modal)/location-search'} asChild>
+            <TouchableOpacity style={styles.location}>
+              <Ionicons
+                name="location-outline"
+                size={20}
+                color={colors.medium}
+              />
+              <Text style={{ flex: 1 }}>Current location</Text>
+              <Ionicons
+                name="chevron-forward"
+                size={20}
+                color={colors.primary}
+              />
+            </TouchableOpacity>
+          </Link>
         </View>
         <View>
           <Text style={styles.subheader}>Arrival Time</Text>

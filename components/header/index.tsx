@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       <StatusBar
-        backgroundColor={Platform.OS === 'ios' ? '#000' : '#fff'}
+        backgroundColor={Platform.OS === 'ios' ? '#000' : '#000'}
         barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
       />
       <SafeAreaView style={styles.safeArea}>

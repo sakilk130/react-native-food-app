@@ -8,6 +8,7 @@ import {
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '@/constants/colors';
+import { Link } from 'expo-router';
 
 const Search = () => {
   return (
@@ -20,9 +21,11 @@ const Search = () => {
           placeholderTextColor="#ccc"
         />
       </View>
-      <TouchableOpacity>
-        <Ionicons name="options-outline" size={20} color={colors.primary} />
-      </TouchableOpacity>
+      <Link href={'/(modal)/filter'} asChild>
+        <TouchableOpacity>
+          <Ionicons name="options-outline" size={20} color={colors.primary} />
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 };
